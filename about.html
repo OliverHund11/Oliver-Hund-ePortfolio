@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oliver Hund</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <a href="index.html" class="tab">Home</a>
+      <a href="about.html" class="tab active">About</a>
+      <a href="projects.html" class="tab">Projects</a>
+      <a href="resume.html" class="tab">Resume</a>
+      <a href="goals.html" class="tab">Goals</a>
+    </div>
+
+    <div class="main">
+      <!-- <img src="images/snow.jpg" alt="photo of me" class="profile-large"> -->
+
+    <h1 class="intro">About Me</h1>
+    <hr>
+    <p class="title_smallest" style="font-style: italic;">
+        Raised in Illinois, Schooled in Florida, and Family in Austria. 
+        I love dissecting the puzzle of how something works. If you can't buy something... make it instead. Masayoshi Takanaka is the best 70's Musician.
+    </p>
+
+    <p class="title_small"><strong>Education</strong></p>
+    <p class="bio">
+        Studying <strong>Electrical Engineering</strong> at the <strong>Georgia Institute of Technology</strong>; focusing on <a href="https://ece.gatech.edu/circuit-technology-thread" target="_blank">Circuit Technology</a>
+        and <a href="https://ece.gatech.edu/sensing-exploration-thread" target="_blank">Sensing & Exploration</a> specializations.<br>
+        <br>
+        Pursuing a minor in <strong>German</strong> with a focus on business language.<br>
+        <br>
+        Predicted Graduation May 2029.
+    </p>
+    <p class="title_small"><strong>Skills</strong></p>
+    <div class="skills-section">
+        <div class="skill-row">
+            <span class="skill-category">Programming</span>
+            <span class="skill-list">Python, HTML, CSS</span>
+        </div>
+        <div class="skill-row">
+            <span class="skill-category">Software</span>
+            <span class="skill-list">GitHub, Git, KiCad, Streamlit, Fusion360, Blender</span>
+        </div>
+        <div class="skill-row">
+            <span class="skill-category">Hardware</span>
+            <span class="skill-list">Raspberry Pi, CTR Pigeon, limelight, Neo Vortex, STM32 Blue Pill</span>
+        </div>
+        <div class="skill-row">
+            <span class="skill-category">Tool Experience</span>
+            <span class="skill-list">lathe, CNC, belt sander, drill press, miter saw, table saw, hand soldering, reflow oven</span>
+        </div>
+        <div class="skill-row">
+            <span class="skill-category">Language</span>
+            <span class="skill-list">German (B1), Spanish (A2), English (C2)</span>
+        </div>
+    </div>
+
+    <p class="title_small"><strong>Activities & Experience</strong></p>
+    <p class="title_smallest">GT Solar Racing<p>
+    <p class="bio">
+        Member of the electrical team for <a href="https://solarracing.gatech.edu/" target="_blank">Georgia Tech Solar Racing</a>. Help design, review, fabricate, and test PCB boards. <br>
+        <br>
+        Current project is designing and fabbing an "IV Swinger" board which will take in voltage output from our solar arrays and test their condition/health by measuring the respective change in current and graphing an IV curve.
+    </p>
+    <p class="title_smallest">FRC Team 3164<p>
+    <p class="bio">
+        Led and taught other members of the Electrical team while planning projects, leading instructional sessions, and design <br>
+        <br>
+        Taught team circuit theory, CAN, power distribution, camera-based perception, wiring diagrams, IMU sensors, multimeter <br>
+        <br>
+        Placed 3rd at the Tallahassee regional and qualified 3rd at the Miami regional competitions <br>
+    </p>
+    <p class="title_smallest">Private Tutoring<p>
+    <p class="bio">
+        Established and networked own private tutoring business focused on educating 5th-12th students <br>
+        <br>
+        Adapted to tutee's individual learning styles to comprehensibly explain multimodal concepts to 16 students <br>
+        <br>
+        Tutored: Math, Physics, English, Spanish <br>
+
+    </p>
+    <p class="title_small"><strong>Hobbies</strong></p>
+    <div class="hobbies-section">
+    <div class="slideshow">
+    <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+    <div class="slides">
+      <img src="images/acoustic_guitar.jpg" class="slide active" alt="Playing guitar" data-desc="EPlaying acoustic guitar — I enjoy composing and recording my own songs.">
+      <img src="images/cooking.JPEG" class="slide" alt="Cooking" data-desc="Experimenting in the kitchen, especially with European dishes I’ve learned while visiting Austria.">
+      <img src="images/dress_text.png" class="slide" alt="Sewed Dress" data-desc="I also like designing and sewing — it’s a creative break from engineering.">
+      <img src="images/jazz_bass.jpg" class="slide" alt="Jazz Band" data-desc="Performing in my college jazz band, where I play bass and guitar.">
+      <img src="images/hike.jpg" class="slide" alt="Hiking" data-desc="I enjoy going hiking, camping, and backpacking.">
+      <img src="images/metal.jpg" class="slide" alt="Sand Casting" data-desc="Casting metal jewleries or small tools ">
+      <img src="images/pep_band.jpg" class="slide" alt="Pep Band" data-desc="Playing at football and basketball games with the Georgia Tech Pep Band.">
+    </div>
+    <button class="next" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+    <div class="slide-text">
+    <p class="indented">
+        • Electric & Acoustic Guitar<br>
+        
+        • Cooking<br>
+        
+        • Design and Sew Clothing<br>
+        
+        • Jazz Band<br>
+        
+        • Camping/Hiking<br>
+        
+        • Sand Casting<br>
+        
+        • Pep Band<br>
+    </p>
+    </div>
+</div>
+
+    </div>
+    </div>
+
+    <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function changeSlide(direction) {
+      slides[currentSlide].classList.remove("active");
+      currentSlide = (currentSlide + direction + slides.length) % slides.length;
+      slides[currentSlide].classList.add("active");
+    }
+    </script>
+</body>
+</html>

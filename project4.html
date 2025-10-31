@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oliver Hund</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <a href="index.html" class="tab">Home</a>
+      <a href="about.html" class="tab">About</a>
+      <a href="projects.html" class="tab active">Projects</a>
+      <a href="resume.html" class="tab">Resume</a>
+      <a href="goals.html" class="tab">Goals</a>
+    </div>
+    <div class="main">
+
+      <h1 class="intro">Projects</h1>
+      <hr class="divider">
+
+      <p class="title_smallesty" style="text-align: center; margin-bottom: 3rem;"></p>
+
+      <div class="projects-container">
+        <a href="project1.html" class="project-button">STM32 Blue Pill</a>
+        <a href="project2.html" class="project-button">Interactive Orrery</a>
+        <a href="project3.html" class="project-button">FRC 3164</a>
+        <a href="project4.html" class="project-button-selected">Custom Instruments</a>
+        <a href="project5.html" class="project-button">Solar IV Tracer</a>
+      </div>
+
+      <p class="title_smallesty" style="text-align: center; margin-bottom: 2rem;"></p>
+      <hr class="divider">
+
+      <p class="intro">Custom Instruments</p>
+
+      <div class="center-slideshow">
+        <div class="center-slides">
+          <img src="images/guitar_solder.jpg" class="center-slide active" alt="Guitar Solder">
+          <img src="images/guitar_chissel.jpg" class="center-slide" alt="Bass Chissel">
+          <img src="images/tele.jpg" class="center-slide" alt="Guitar Showcase">
+          <img src="images/draw.jpg" class="center-slide" alt="Guitar Template">
+          <img src="images/guitar_make.jpg" class="center-slide" alt="Guitar Router">
+          <img src="images/bass_chair.jpg" class="center-slide" alt="Bass Showcase">
+        </div>
+        <button class="center-prev">&#10094;</button>
+        <button class="center-next">&#10095;</button>
+      </div>
+
+      <p class="bio">
+        I've been making stringed instruments for several years, something known as luthiery. It combines a few of my favorite things—woodworking, music, and design. I usually start with a rough idea, then model it in Fusion360 or Blender to work out dimensions, scale length, and balance before building. Seeing everything laid out digitally helps me spot problems early and make sure the design will feel right once it's in my hands.
+        <br>
+        <br>
+        Once I start building, the process slows down. Most of the shaping and fitting is done by hand. I use chisels to carve necks, make my own jigs for routing, and take time to get the fretwork and finish smooth. Small details matter; an uneven fret or a misplaced screw can completely change how an instrument plays. These projects take a lot of patience, but I like that part—it's steady, focused work that gives a real sense of progress.
+        <br>
+        <br>
+        When I began making electric guitars and basses, I had to learn the electronics side too. I wire everything myself, from the pickups to the output jack. Each pickup turns the vibration of the strings into an electrical signal, which then runs through volume and tone potentiometers that shape the sound before leaving the instrument. Getting the wiring neat and noise-free takes planning—shielding the cavities, keeping grounds clean, and making sure the signal path stays consistent.
+        <br>
+        <br>
+        I enjoy figuring out how all of that ties together. It's not complicated once you understand the basics, but there's something satisfying about hearing the result of your own wiring work through an amp. It's a mix of mechanical precision and creativity—if something buzzes or sounds off, there's always a small fix that makes it right.
+        <br>
+        <br>
+        In the future, I'd like to design my own circuit boards for custom guitar pedals or maybe an amplifier. It feels like a natural next step from wiring instruments by hand. Building guitars has taught me how to combine structure, sound, and design in a practical way, and it's something I plan to keep doing for a long time
+      </p>
+
+    </div>
+  </div>
+
+  <script>
+    let currentIndex = 0;
+    const slides = document.querySelectorAll('.center-slide');
+
+    function showSlide(index) {
+      slides.forEach(slide => slide.classList.remove('active'));
+      slides[index].classList.add('active');
+    }
+
+    document.querySelector('.center-prev').addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      showSlide(currentIndex);
+    });
+
+    document.querySelector('.center-next').addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    });
+  </script>
+</body>
+</html>

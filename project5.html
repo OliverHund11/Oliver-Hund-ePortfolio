@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oliver Hund</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <a href="index.html" class="tab">Home</a>
+      <a href="about.html" class="tab">About</a>
+      <a href="projects.html" class="tab active">Projects</a>
+      <a href="resume.html" class="tab">Resume</a>
+      <a href="goals.html" class="tab">Goals</a>
+    </div>
+
+    <div class="main">
+      <h1 class="intro">Projects</h1>
+      <hr class="divider">
+
+      <div class="projects-container">
+        <a href="project1.html" class="project-button">STM32 Blue Pill</a>
+        <a href="project2.html" class="project-button">Interactive Orrery</a>
+        <a href="project3.html" class="project-button">FRC 3164</a>
+        <a href="project4.html" class="project-button">Custom Instruments</a>
+        <a href="project5.html" class="project-button-selected">Solar IV Tracer</a>
+      </div>
+
+      <hr class="divider">
+      <p class="intro">Solar IV Tracer</p>
+
+      <div class="center-slideshow">
+        <div class="center-slides">
+          <img src="images/IV_schem.png" class="center-slide active" alt="IV Schematic">
+          <img src="images/IV_lay.png" class="center-slide" alt="IV Layout">
+          <img src="images/SR4.png" class="center-slide" alt="Solar Car #4">
+        </div>
+        <button class="center-prev">&#10094;</button>
+        <button class="center-next">&#10095;</button>
+      </div>
+
+      <p class="bio">
+        The IV Curve Tracer is a board project I'm currently developing with a teammate for Georgia Tech Solar Racing. So far, we've completed the schematic, and the project is still in progress as we move toward PCB layout, firmware development, and testing. The board is designed to work with an Arduino Uno to measure the voltage and current produced by different sections of the team's solar array. Using these readings, it will generate an IV curve—a graph showing how current varies with voltage. From this curve, we can determine the maximum power point (MPP) and assess the overall health of the solar cells.
+        <br>
+        <br>
+        The system is designed to handle up to 110 volts and 6.5 amps from the array, with a total component cost of around $70. When connected to the PV output, the array's current charges onboard capacitors. These capacitors begin at zero volts and charge up to the open-circuit voltage, sweeping the array through its full IV range. A set of MOSFETs controls both charging and discharging through a bleed resistor. During this process, voltage and current are measured in rapid intervals and sent to the Arduino for conversion and plotting.
+        <br>
+        <br>
+        On the sensing side, the current is measured using a precision 5-milliohm shunt resistor. The voltage drop across it is amplified through an operational amplifier configured for a gain of about 76x, making it readable by the Arduino's ADC. The voltage measurement path uses resistor dividers and buffering op-amps to safely step down and stabilize the signal. Filtering capacitors remove high-frequency noise, and careful grounding and shielding prevent measurement errors.
+        <br>
+        <br>
+        The board's purpose is mainly diagnostic rather than operational—it won't be installed in the car but used for bench testing solar zones from the current car and the new one being built. By comparing measured IV curves to the manufacturer's data, the team can detect damaged cells or wiring issues before they affect performance.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    let currentIndex = 0;
+    const slides = document.querySelectorAll('.center-slide');
+
+    function showSlide(index) {
+      slides.forEach(slide => slide.classList.remove('active'));
+      slides[index].classList.add('active');
+    }
+
+    document.querySelector('.center-prev').addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      showSlide(currentIndex);
+    });
+
+    document.querySelector('.center-next').addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    });
+  </script>
+</body>
+</html>

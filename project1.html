@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oliver Hund</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <a href="index.html" class="tab">Home</a>
+      <a href="about.html" class="tab">About</a>
+      <a href="projects.html" class="tab active">Projects</a>
+      <a href="resume.html" class="tab">Resume</a>
+      <a href="goals.html" class="tab">Goals</a>
+    </div>
+
+    <div class="main">
+      <!-- <img src="images/snow.jpg" alt="photo of me" class="profile-large"> -->
+
+      <h1 class="intro">Projects</h1>
+      <hr>
+      <p class="intro_smallest" style="text-align: center; margin-bottom: 3rem;"></p>
+
+      <div class="projects-container">
+        <a href="project1.html" class="project-button-selected">STM32 Blue Pill</a>
+        <a href="project2.html" class="project-button">Interactive Orrery</a>
+        <a href="project3.html" class="project-button">FRC 3164</a>
+        <a href="project4.html" class="project-button">Custom Instruments</a>
+        <a href="project5.html" class="project-button">Solar IV Tracer</a>
+      </div>
+
+      <p class="intro_smallest" style="text-align: center; margin-bottom: 2rem;"></p>
+      <hr>
+      <p class="intro_smallest" style="text-align: center; margin-bottom: 2rem;"></p>
+
+      <p class="intro">STM32 Blue Pill</p>
+
+      <div class="center-slideshow">
+        <div class="center-slides">
+          <img src="images/STM32_lay.png" class="center-slide active" alt="STM32 Layout">
+          <img src="images/STM32_schem.png" class="center-slide" alt="STM32 Schematic">
+          <img src="images/STM32_screen.jpg" class="center-slide" alt="STM32 Assembly">
+          <img src="images/STM32_beast.jpg" class="center-slide" alt="STM32 Fabbed">
+          <img src="images/STM32_solder.jpg" class="center-slide" alt="STM32 Solder">
+        </div>
+        <button class="center-prev">&#10094;</button>
+        <button class="center-next">&#10095;</button>
+      </div>
+
+      <p class="bio">
+        The goal of this project was to design and build a fully functioning version of the STM32 Blue Pill, a development board based on STMicroelectronics’ STM32 microcontroller with a 32-bit ARM Cortex M3 processor. The Blue Pill supports UART, I2C, CAN, analog GPIOs, and both 3.3V and 5V power, making it a versatile platform for embedded systems projects. My primary objective was not simply to replicate an existing board, but to gain a deeper understanding of chip design and PCB layout while developing hands-on experience with complex electronics. A secondary benefit was creating a customized board that could serve as a foundation for future projects.
+        <br>
+        <br>
+        I designed the board entirely from scratch in KiCad, including both the schematic and the PCB layout. I made several intentional modifications to improve performance and usability. For instance, I replaced the standard 8MHz crystal with a 16MHz high-speed external oscillator to enable more precise timing. Since I did not require battery operation, I omitted the low-speed external (LSE) crystal. I also replaced the standard jumper block with a single-pole double-throw (SPDT) switch to simplify control. To optimize routing and reduce EMI, I placed the linear voltage regulator closer to the power input and implemented dedicated ground and 3.3V planes on the back of the board.
+        <br>
+        <br>
+        One of the primary challenges of this project was fitting all the components onto a compact PCB. Achieving an efficient layout required using both sides of the board and carefully planning trace routing. Soldering the STM32 microcontroller presented another challenge due to its small, precise pads. Using a microscope was essential for accurate component placement and assembly. Additionally, fabricating the board required close attention to the solder mask and silkscreen, particularly for the microcontroller pads, to ensure a reliable final product.
+        <br>
+        <br>
+        Through this project, I strengthened skills in PCB design, soldering, and embedded systems development. I gained experience optimizing layouts for signal integrity and power distribution and learned how small design decisions—such as the choice of oscillator or regulator placement—affect overall performance and usability.
+        <br>
+        <br>
+        The final board functions as a fully operational Blue Pill and is now a ready-to-use platform for future electronics projects. Beyond the tangible outcome, this project provided valuable insight into the challenges of high-density PCB design and reinforced my ability to troubleshoot and iterate on complex hardware designs. It represents a combination of practical skill development and a deeper understanding of microcontroller architecture that I can carry forward into more advanced projects.
+      </p> 
+</div> <!-- end of main -->
+  </div> <!-- end of container -->
+
+  <script>
+    const slides = document.querySelectorAll('.center-slide');
+    const prev = document.querySelector('.center-prev');
+    const next = document.querySelector('.center-next');
+    let currentIndex = 0;
+
+    if (slides.length && prev && next) {
+      function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        slides[index].classList.add('active');
+      }
+
+      prev.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        showSlide(currentIndex);
+      });
+
+      next.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+      });
+    }
+  </script>
+
+</body>
+</html>

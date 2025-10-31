@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oliver Hund</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <a href="index.html" class="tab">Home</a>
+      <a href="about.html" class="tab">About</a>
+      <a href="projects.html" class="tab active">Projects</a>
+      <a href="resume.html" class="tab">Resume</a>
+      <a href="goals.html" class="tab">Goals</a>
+    </div>
+    <div class="main">
+
+      <h1 class="intro">Projects</h1>
+      <hr class="divider">
+
+      <p class="title_smallesty" style="text-align: center; margin-bottom: 3rem;">
+      </p>
+
+      <div class="projects-container">
+        <a href="project1.html" class="project-button">STM32 Blue Pill</a>
+        <a href="project2.html" class="project-button">Interactive Orrery</a>
+        <a href="project3.html" class="project-button-selected">FRC 3164</a>
+        <a href="project4.html" class="project-button">Custom Instruments</a>
+        <a href="project5.html" class="project-button">Solar IV Tracer</a>
+      </div>
+
+      <p class="title_smallesty" style="text-align: center; margin-bottom: 2rem;">
+      </p>
+
+      <hr class="divider">
+
+      <p class="intro">FRC 3164</p>
+
+      <div class="center-slideshow">
+        <div class="center-slides">
+          <img src="images/FRC_team.jpg" class="center-slide active" alt="FRC Team">
+          <img src="images/electrical_complete.jpg" class="center-slide" alt="FRC Electrical Complete">
+          <img src="images/FRC_wireless.jpg" class="center-slide" alt="FRC Wireless">
+        </div>
+        <button class="center-prev">&#10094;</button>
+        <button class="center-next">&#10095;</button>
+      </div>
+
+      <p class="bio">
+        For the 2025 FIRST Robotics Competition, I served as the electrical lead for my school's team, FRC Team 3164. I was responsible for designing and assembling all of the robot's electrical systems from the ground up. Our robot used a range of components including Neo Vortex motors, a CTR Pigeon sensor, Limelight cameras, a Raspberry Pi, a RoboRIO, a radio, and a full CAN line network to tie everything together.
+        <br>
+        <br>
+        Designing the electrical system came with one major challenge—space. Every inch of the robot's frame was already claimed by mechanical parts, motors, and wiring routes. Finding room for each component while keeping everything serviceable and safe required a lot of planning. I spent hours reorganizing wire paths, calculating lengths, and ensuring every device was positioned in a way that minimized interference.
+        <br>
+        <br>
+        The biggest obstacle came from our telescoping elevator system, which allowed the arm to extend high above the robot to place game pieces. This mechanism moved constantly and in a non-uniform way, making it extremely difficult to send power and data up to the top. The elevator needed both a camera and sensors for AprilTag detection, so I had to find a way to keep the wires from twisting or snapping as it moved.
+        <br>
+        <br>
+        After several failed attempts, I designed a flexible wiring solution using a series of cable drag chains. These chains allowed the cables to move smoothly with the elevator's motion while preventing tangles or tension on the connectors. It was one of the most technically satisfying solutions I've built—simple in appearance, but carefully engineered to handle repeated stress through every match.
+        <br>
+        <br>
+        In addition to the build, I also led a small group of underclassmen who assisted with the wiring and layout. I taught them the basic principles of electricity, from current flow and polarity to grounding and safety. We went over how to plan wire routes, label connections, and think ahead for repairs. Watching them grow more confident and start contributing independently was one of the best parts of the season.
+        <br>
+        <br>
+        Our team's efforts paid off. We placed third at the Tallahassee Regional and third at the Miami Regional, competing against roughly forty teams at each event. Seeing the robot function flawlessly on the field, knowing how much work went into making every component reliable, was incredibly rewarding. Leading the electrical team taught me not only about complex wiring and control systems, but also about mentorship, patience, and problem-solving under pressure.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    let currentIndex = 0;
+    const slides = document.querySelectorAll('.center-slide');
+
+    function showSlide(index) {
+      slides.forEach(slide => slide.classList.remove('active'));
+      slides[index].classList.add('active');
+    }
+
+    document.querySelector('.center-prev').addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      showSlide(currentIndex);
+    });
+
+    document.querySelector('.center-next').addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    });
+  </script>
+</body>
+</html>

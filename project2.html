@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oliver Hund</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <a href="index.html" class="tab">Home</a>
+      <a href="about.html" class="tab">About</a>
+      <a href="projects.html" class="tab active">Projects</a>
+      <a href="resume.html" class="tab">Resume</a>
+      <a href="goals.html" class="tab">Goals</a>
+    </div>
+    <div class="main">
+      <!-- <img src="images/snow.jpg" alt="photo of me" class="profile-large"> -->
+
+    <h1 class="intro">Projects</h1>
+    <hr>
+    <p class="intro_smallest" style="text-align: center; margin-bottom: 3rem;">
+    </p>
+    <div class="projects-container">
+      <a href="project1.html" class="project-button">STM32 Blue Pill</a>
+      <a href="project2.html" class="project-button-selected">Interactive Orrery</a>
+      <a href="project3.html" class="project-button">FRC 3164</a>
+      <a href="project4.html" class="project-button">Custom Instruments</a>
+      <a href="project5.html" class="project-button">Solar IV Tracer</a>
+    </div>
+    <p class="intro_smallest" style="text-align: center; margin-bottom: 2rem;">
+    
+    </p>
+    <hr>
+    <p class="intro_smallest" style="text-align: center; margin-bottom: 2rem;">
+    
+    </p>
+    <p class="intro">
+        Interactive Orrery
+    </p>
+    
+    <video class="project-video" controls autoplay loop muted>
+      <source src="images/Orrery.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <p class="bio" style="text-align: center;">
+        You can access the website <a href="https://nasaspaceapps2024.s3.us-east-1.amazonaws.com/deploy/index.html" target = "_blank">here</a>.
+    </p>
+
+    <p class="bio">
+        I collaborated with a team of three to develop an interactive orrery—a real-time digital model of the Solar System—that visualizes the orbital paths of planets, comets, asteroids, and other celestial bodies. The project was completed during a NASA Space Apps Hackathon, where our team built a functional prototype within 36 hours. My primary responsibility was developing the computational logic behind the simulation, including the physics calculations and numerical methods required to predict the positions of over 200 celestial bodies.
+        <br>
+        <br>
+        The central technical challenge was implementing accurate orbital predictions based on Keplerian elements. Calculating positions for each object required solving Kepler’s Equation, which does not have a closed-form solution. I applied the Newton-Raphson method to solve these equations numerically, ensuring precision while maintaining efficiency for real-time simulation. This demanded a steep learning curve, both in understanding orbital mechanics and in translating complex physics into reliable code.
+        <br>
+        <br>
+        We began prototyping the simulation in Python to rapidly test orbital mechanics and validate calculations. Once the logic was stable, we transitioned the project into C# within the Unity engine. This allowed us to create an immersive 3D visualization, where users can freely move the camera around the Sun and explore the Solar System from any angle. The orrery is fully interactive: hovering over an orbit displays the name of the object following that path, providing immediate context and insight into the system’s structure.
+        <br>
+        <br>
+        Working under a tight deadline required effective coordination with my teammates. While I focused on orbital calculations, my teammates handled aspects such as 3D rendering, user interaction, and interface design. Constant collaboration ensured that the physics calculations integrated smoothly with the visualization, keeping the simulation both accurate and responsive.
+        <br>
+        <br>
+        Through this project, I gained significant insight into astrophysics, numerical methods, and programming for scientific visualization. I strengthened my ability to translate complex physical equations into efficient code, and I developed skills in transitioning a prototype between programming languages and platforms. The experience also emphasized the importance of iterative testing, problem-solving under pressure, and effective teamwork to achieve a functional and polished result quickly.
+        <br>
+        <br>
+        The final orrery tracks over 200 celestial objects, visualizes their orbits in real-time, and allows users to interact with the simulation from any viewpoint. Beyond creating a visually compelling and scientifically accurate tool, this project demonstrates my ability to combine physics, mathematics, and programming into a functional application. It reflects my capacity to learn advanced concepts quickly, solve technical challenges, and contribute meaningfully to a collaborative, high-pressure project.
+    </p>
+
+
+
+
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.center-slide');
+
+        function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        slides[index].classList.add('active');
+        }
+
+        document.querySelector('.center-prev').addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        showSlide(currentIndex);
+        });
+
+        document.querySelector('.center-next').addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+        });
+    </script>
+
